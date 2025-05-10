@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  auth:
+    build:
+      context: ./services/auth
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./services/auth:/app
+    expose:
+      - "8080"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+
+  payments: 
+    build:
+      context: ./services/payments
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./services/payments:/app
+    expose:
+      - "8080"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  profile:
+    build:
+      context: ./services/profile
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./services/profile:/app
+    expose:
+      - "8080"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
