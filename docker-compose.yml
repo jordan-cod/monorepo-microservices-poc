@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  auth:
+    build: ./services/auth
+    container_name: auth
+    expose:
+      - "8080"
+
+  payments:
+    build: ./services/payments
+    container_name: payments
+    expose:
+      - "8080"
+
+  users:
+    build: ./services/users
+    container_name: users
+    expose:
+      - "8080"
+
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    ports:
+      - "80:80"
+    depends_on:
+      - auth
+      - payments
+      - users
