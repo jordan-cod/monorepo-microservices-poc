@@ -35,8 +35,8 @@ E testar o sistema como um todo exige muito esforço extra
 ### 1. Clonar o repositório com os submódulos
 
 ```bash
-git clone --recurse-submodules https://github.com/jordan-cod/monorepo-microservices
-cd monorepo-microservices
+git clone --recurse-submodules https://github.com/jordan-cod/monorepo-microservices-poc
+cd monorepo-microservices-poc
 ```
 
 Se esquecer a flag, use:
