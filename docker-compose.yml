@@ -6,18 +6,37 @@ services:
     container_name: auth
     expose:
       - "8080"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
 
-  payments:
+
+  payments: 
     build: ./services/payments
     container_name: payments
     expose:
       - "8080"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
 
-  users:
+  profile:
     build: ./services/profile
     container_name: profile
     expose:
       - "8080"
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8080/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
 
   gateway:
     build: ./gateway
@@ -25,6 +44,9 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - auth
-      - payments
-      - users
+      auth:
+        condition: service_healthy
+      payments:
+        condition: service_healthy
+      profile:
+        condition: service_healthy
