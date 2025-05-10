@@ -1,7 +1,7 @@
 COMPOSE_DEV = docker-compose -f docker-compose.yml -f docker-compose.override.yml
 COMPOSE_PROD = docker-compose -f docker-compose.yml
 
-.PHONY: defualt dev dev-auth dev-payments dev-profile stop update
+.PHONY: defualt dev stop update
 
 ## Sobe todos os serviços em modo prod
 default:

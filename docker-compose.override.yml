@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - ./services/auth:/app
+      - /app/node_modules
     expose:
       - "8080"
     healthcheck:
@@ -23,6 +24,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - ./services/payments:/app
+      - /app/node_modules
     expose:
       - "8080"
     healthcheck:
@@ -38,6 +40,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - ./services/profile:/app
+      - /app/node_modules
     expose:
       - "8080"
     healthcheck:
