@@ -1,0 +1,9 @@
+[submodule "services/auth"]
+	path = services/auth
+	url = https://github.com/jordan-cod/auth-service.git
+[submodule "services/payments"]
+	path = services/payments
+	url = https://github.com/jordan-cod/payments-service.git
+[submodule "services/profile"]
+	path = services/profile
+	url = https://github.com/jordan-cod/profile-service.git
