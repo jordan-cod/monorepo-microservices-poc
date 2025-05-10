@@ -14,8 +14,8 @@ services:
       - "8080"
 
   users:
-    build: ./services/users
-    container_name: users
+    build: ./services/profile
+    container_name: profile
     expose:
       - "8080"
 
